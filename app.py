@@ -15,7 +15,7 @@ st.title("💬 INSIS comisiones - Asistente OpenAI")
 # 📷 Mostrar imagen precargada al iniciar
 try:
     imagen_precargada = Image.open("logo.jpg")
-    imagen_redimensionada = imagen_precargada.resize((30, 30))  # Ajusta el tamaño aquí
+    imagen_redimensionada = imagen_precargada.resize((20, 20))  # Ajusta el tamaño aquí
     st.image(imagen_precargada, caption="CTI Insuretech", use_container_width=True)
 except FileNotFoundError:
     st.warning("No se encontró la imagen 'logo.jpg'. Asegúrate de que esté en el mismo directorio que el script.")
@@ -86,6 +86,7 @@ if user_input:
         "user": user_input,
         "assistant": respuesta
     })
+
 
 
 
