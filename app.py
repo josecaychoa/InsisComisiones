@@ -1,10 +1,6 @@
 import streamlit as st
 import openai
-from dotenv import load_dotenv
 import os
-
-# Cargar variables de entorno (solo útil en desarrollo local)
-load_dotenv()
 
 # Configurar la clave de API
 openai.api_key = st.secrets["OPENAI_API_KEY"]
@@ -80,3 +76,4 @@ if user_input:
         "user": user_input,
         "assistant": respuesta
     })
+
