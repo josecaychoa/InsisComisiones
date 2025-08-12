@@ -1,6 +1,7 @@
 import streamlit as st
 import openai
 import os
+from PIL import Image
 
 # Configurar la clave de API
 openai.api_key = st.secrets["OPENAI_API_KEY"]
@@ -10,6 +11,14 @@ ASSISTANT_ID = "asst_qQ2eCW3Os9ewKIpmoAX6dA6H"
 
 st.set_page_config(page_title="INSIS Asistente", layout="centered")
 st.title("💬 INSIS comisiones - Asistente OpenAI")
+
+# 📷 Mostrar imagen precargada al iniciar
+try:
+    imagen_precargada = Image.open("logo.jpg")
+    st.image(imagen_precargada, caption="Imagen de inspiración para tu viaje", use_container_width=True)
+except FileNotFoundError:
+    st.warning("No se encontró la imagen 'logo.jpg'. Asegúrate de que esté en el mismo directorio que el script.")
+
 
 # 🧹 Opción en la barra lateral para borrar historial
 if st.sidebar.button("🗑️ Borrar conversación"):
@@ -76,4 +85,5 @@ if user_input:
         "user": user_input,
         "assistant": respuesta
     })
+
 
